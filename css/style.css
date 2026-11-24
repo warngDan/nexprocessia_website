@@ -18,34 +18,42 @@
 @media(max-width:900px){.agent-cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:520px){.agent-cards{grid-template-columns:1fr 1fr;gap:10px}.agent-card-body{padding:13px 10px 15px}.agent-card h3{font-size:18px}.agent-card p{font-size:11px;min-height:95px}.agent-card>img{aspect-ratio:1/1}}
 
-/* Accessibilité : agrandissement x2 des plus petits textes sur toutes les pages */
-.eyebrow{font-size:20px}
-.hero-proof{font-size:24px}
-.core small{font-size:14px}
-.float-card b{font-size:22px}
-.float-card small{font-size:18px}
-.visual-caption{font-size:18px}
-.hero-bottom{font-size:18px}
-.solution-number{font-size:20px}
-.text-link{font-size:22px}
-.footer-top p{font-size:22px}
-.footer-links{font-size:22px}
-.footer-bottom{font-size:20px}
-.agent-row li{font-size:24px}
-.contact-form label{font-size:22px}
-.contact-form input:not([type=checkbox]),.contact-form select,.contact-form textarea{font-size:24px}
-.contact-note p{font-size:22px}
-.form-feedback{font-size:24px}
-.agent-tag{font-size:18px}
-.agent-card p{font-size:24px}
-.agent-card a{font-size:22px}
-.agent-disclaimer{font-size:20px}
-@media(max-width:900px){.main-nav{font-size:22px}}
-@media(max-width:700px){
- .hero-proof{font-size:24px}
- .hero-bottom{font-size:14px}
- .page-hero p:last-child{font-size:28px}
- .agent-card p{font-size:22px}
- .visual-caption{font-size:16px}
+
+/* Typographie harmonisée : meilleure lisibilité sans surdimensionner les textes */
+.eyebrow{font-size:11px;letter-spacing:2px}
+.hero-proof{font-size:13px}
+.core small{font-size:9px}
+.float-card b{font-size:12px}
+.float-card small{font-size:11px}
+.visual-caption{font-size:10px}
+.hero-bottom{font-size:10px}
+.solution-number{font-size:11px}
+.text-link{font-size:12px}
+.footer-top p{font-size:12px}
+.footer-links{font-size:12px}
+.footer-bottom{font-size:11px}
+.agent-row li{font-size:13px}
+.contact-form label{font-size:12px}
+.contact-form input:not([type=checkbox]),.contact-form select,.contact-form textarea{font-size:14px}
+.contact-note p{font-size:12px}
+.form-feedback{font-size:13px}
+.agent-tag{font-size:10px}
+.agent-card p{font-size:13px;line-height:1.65;min-height:68px}
+.agent-card a{font-size:12px}
+.agent-disclaimer{font-size:11px;line-height:1.6}
+@media(max-width:900px){
+ .main-nav{font-size:12px}
 }
-@media(max-width:520px){.agent-card p{font-size:22px}}
+@media(max-width:700px){
+ .hero-proof{font-size:12px}
+ .hero-bottom{font-size:9px}
+ .page-hero p:last-child{font-size:15px}
+ .agent-card p{font-size:12px;min-height:88px}
+ .visual-caption{font-size:9px}
+ .footer-links{font-size:12px}
+ .footer-bottom{font-size:11px}
+}
+@media(max-width:520px){
+ .agent-card p{font-size:11px;min-height:94px}
+ .agent-tag{font-size:9px}
+}
