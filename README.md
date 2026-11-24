@@ -20,3 +20,6 @@ Le dépôt GitHub est relié à Cloudflare Pages. Après chaque `git push` sur `
 - Rédiger les mentions légales et la politique de confidentialité adaptées à l'activité réelle.
 - Vérifier les textes, les offres, les tarifs et les engagements.
 - Ajouter des cas clients uniquement lorsqu'ils sont réels et autorisés.
+
+
+Logo : symbole NexProcess IA intégré dans l’en-tête et le pied de page, avec un dégradé bleu/cyan assorti au site. Fichier : `assets/nexprocessia-mark.png`.
