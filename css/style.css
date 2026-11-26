@@ -7,7 +7,8 @@
 .agent-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
 .agent-card{overflow:hidden;border:1px solid #ffffff20;border-radius:13px;background:linear-gradient(145deg,#132945,#0d1e35);text-align:center;transition:transform .22s,border-color .22s,box-shadow .22s}
 .agent-card:hover{transform:translateY(-5px);border-color:#55d5ed99;box-shadow:0 15px 35px #0004}
-.agent-card>img{display:block;width:100%;aspect-ratio:1.35/1;object-fit:cover;object-position:center 27%;background:#0a1b31}
+.agent-card>img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover;object-position:50% 25%;background:#0a1b31;transform:scale(1.035);transition:transform .25s;clip-path:inset(0 round 50%);max-width:250px;margin:18px auto 0;box-shadow:0 0 0 2px #35d5ed55}
+.agent-card:hover>img{transform:scale(1.07)}
 .agent-card-body{padding:20px 19px 22px}
 .agent-card h3{font:700 21px var(--display);color:#fff;margin:0 0 3px}
 .agent-tag{font-size:9px;letter-spacing:1.2px;font-weight:700;color:#62d7ed}
@@ -16,7 +17,7 @@
 .agent-card a b{color:var(--cyan)}
 .agent-disclaimer{margin:22px auto 0;max-width:850px;text-align:center;font-size:10px;color:#8296b1}
 @media(max-width:900px){.agent-cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:520px){.agent-cards{grid-template-columns:1fr 1fr;gap:10px}.agent-card-body{padding:13px 10px 15px}.agent-card h3{font-size:18px}.agent-card p{font-size:11px;min-height:95px}.agent-card>img{aspect-ratio:1/1}}
+@media(max-width:520px){.agent-cards{grid-template-columns:1fr 1fr;gap:10px}.agent-card-body{padding:13px 10px 15px}.agent-card h3{font-size:18px}.agent-card p{font-size:11px;min-height:95px}.agent-card>img{aspect-ratio:1/1;max-width:190px;margin-top:13px}}
 
 
 /* Typographie harmonisée : meilleure lisibilité sans surdimensionner les textes */
