@@ -57,3 +57,10 @@
  .agent-card p{font-size:11px;min-height:94px}
  .agent-tag{font-size:9px}
 }
+
+
+/* Identité visuelle du logo NexProcess IA : Nex bleu, Process blanc, IA cyan */
+.brand-wordmark{display:inline-flex;align-items:baseline;white-space:nowrap;font-family:var(--display);font-weight:700;letter-spacing:-.6px;color:#fff}
+.brand-nex{color:#1769AA}
+.brand-process{color:#FFFFFF}
+.brand-wordmark b{color:#35D5ED;font-weight:800}
