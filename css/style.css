@@ -82,3 +82,7 @@
 .legal-content a:hover{color:#174c9d}
 .legal-content code{font-size:.9em;background:#e8edf5;padding:2px 5px;border-radius:4px}
 .legal-updated{margin-top:40px!important;padding-top:18px;border-top:1px solid #dce3ed;color:#718096;font-size:12px}
+
+/* Champ honeypot du formulaire de contact : invisible pour les visiteurs */
+.form-honeypot{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;overflow:hidden!important}
+.contact-form button:disabled{opacity:.65;cursor:wait}
