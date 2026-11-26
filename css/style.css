@@ -64,3 +64,8 @@
 .brand-nex{color:#1769AA}
 .brand-process{color:#FFFFFF}
 .brand-wordmark b{color:#35D5ED;font-weight:800}
+
+
+/* Wordmark exact issu du logo original, avec ses proportions et sa typographie */
+.brand-wordmark-image{display:block;width:215px;height:auto;object-fit:contain}
+@media(max-width:700px){.brand-wordmark-image{width:190px}}
