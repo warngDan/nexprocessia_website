@@ -15,6 +15,40 @@ document.addEventListener('DOMContentLoaded', () => {
   const year = document.getElementById('year');
   if (year) year.textContent = new Date().getFullYear();
 
+  const normalizePhoneNumber = (rawValue, callingCode) => {
+    const raw = String(rawValue || '').trim();
+    if (!raw) return '';
+
+    // On retire les séparateurs usuels, sans modifier les chiffres ni le +.
+    const compact = raw.replace(/[\s().\-/]/g, '');
+    let normalized;
+
+    if (compact.startsWith('+')) {
+      // Un indicatif international saisi par le visiteur est prioritaire.
+      normalized = compact;
+    } else if (compact.startsWith('00')) {
+      normalized = '+' + compact.slice(2);
+    } else {
+      const digits = compact.replace(/\D/g, '');
+      // Le zéro initial est le préfixe national, absent du format E.164.
+      normalized = String(callingCode || '+33') + digits.replace(/^0+/, '');
+    }
+
+    if (!/^\+[1-9]\d{6,14}$/.test(normalized)) {
+      throw new Error('Veuillez vérifier le numéro de téléphone et son indicatif.');
+    }
+    return normalized;
+  };
+
+  const phoneInput = document.getElementById('telephone');
+  const phoneError = document.getElementById('telephone-error');
+  if (phoneInput && phoneError) {
+    phoneInput.addEventListener('input', () => {
+      phoneInput.setCustomValidity('');
+      phoneError.textContent = '';
+    });
+  }
+
   const form = document.getElementById('contact-form');
   const feedback = document.getElementById('form-feedback');
   if (!form || !feedback) return;
@@ -24,12 +58,24 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!form.reportValidity()) return;
 
     const data = new FormData(form);
+    try {
+      normalizePhoneNumber(String(data.get('telephone') || ''), String(data.get('indicatif') || '+33'));
+      if (phoneError) phoneError.textContent = '';
+      if (phoneInput) phoneInput.setCustomValidity('');
+    } catch (phoneValidationError) {
+      if (phoneInput) {
+        phoneInput.setCustomValidity(phoneValidationError.message);
+        phoneInput.reportValidity();
+      }
+      if (phoneError) phoneError.textContent = phoneValidationError.message;
+      return;
+    }
     const payload = {
       nom: String(data.get('nom') || '').trim(),
       prenom: String(data.get('prenom') || '').trim(),
       entreprise: String(data.get('entreprise') || '').trim(),
       email: String(data.get('email') || '').trim(),
-      telephone: String(data.get('telephone') || '').trim(),
+      telephone: normalizePhoneNumber(String(data.get('telephone') || ''), String(data.get('indicatif') || '+33')),
       type_demande: String(data.get('type_demande') || ''),
       message: String(data.get('message') || '').trim(),
       consentement_rgpd: data.get('consentement_rgpd') === 'oui',
