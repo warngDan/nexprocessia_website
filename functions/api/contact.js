@@ -6,7 +6,10 @@ const json = (data, status = 200) =>
     headers: {
       "Content-Type": "application/json; charset=utf-8",
       "Cache-Control": "no-store",
-      "X-Content-Type-Options": "nosniff"
+      "X-Content-Type-Options": "nosniff",
+      "Referrer-Policy": "strict-origin-when-cross-origin",
+      "X-Frame-Options": "DENY",
+      "Strict-Transport-Security": "max-age=31536000"
     }
   });
 
