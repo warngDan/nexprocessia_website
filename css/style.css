@@ -86,3 +86,13 @@
 /* Champ honeypot du formulaire de contact : invisible pour les visiteurs */
 .form-honeypot{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;overflow:hidden!important}
 .contact-form button:disabled{opacity:.65;cursor:wait}
+
+
+/* Sélecteur pays et indicatif téléphonique du formulaire */
+.phone-field{margin-bottom:17px}
+.phone-field>label{display:block;font-size:12px;font-weight:700;color:#334760;margin-bottom:7px}
+.phone-input-row{display:grid;grid-template-columns:minmax(150px,.8fr) minmax(0,1.2fr);gap:10px}
+.contact-form .phone-input-row select,.contact-form .phone-input-row input{margin-top:0;min-width:0}
+.field-help{display:block;margin-top:6px;color:#718096;font-size:11px;font-weight:400}
+.field-error{margin:4px 0 0;color:#b42318;font-size:11px}
+@media(max-width:520px){.phone-input-row{grid-template-columns:1fr}}
