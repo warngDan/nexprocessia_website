@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!raw) return '';
 
     // On retire les séparateurs usuels, sans modifier les chiffres ni le +.
-    const compact = raw.replace(/[\s().\-/]/g, '');
+    const compact = raw.replace(/[\s().\/-]/g, '');
     let normalized;
 
     if (compact.startsWith('+')) {
