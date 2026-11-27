@@ -41,9 +41,11 @@ export async function onRequestPost({ request, env }) {
   if (data.consentement_rgpd !== true) {
     return json({ success: false, error: "Le consentement est requis." }, 400);
   }
+  const telephone = String(data.telephone || "").trim();
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email) ||
       data.email.length > 254 ||
-      data.message.length > 5000) {
+      data.message.length > 5000 ||
+      (telephone && !/^\+[1-9]\d{6,14}$/.test(telephone))) {
     return json({ success: false, error: "Certaines informations sont invalides." }, 400);
   }
 
@@ -52,7 +54,7 @@ export async function onRequestPost({ request, env }) {
     prenom: data.prenom.trim().slice(0, 120),
     entreprise: String(data.entreprise || "").trim().slice(0, 200),
     email: data.email.trim().slice(0, 254),
-    telephone: String(data.telephone || "").trim().slice(0, 40),
+    telephone: telephone.slice(0, 16),
     type_demande: data.type_demande.trim().slice(0, 120),
     message: data.message.trim(),
     consentement_rgpd: true,
