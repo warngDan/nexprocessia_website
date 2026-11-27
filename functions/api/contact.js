@@ -48,7 +48,7 @@ async function readBodyWithLimit(request) {
 }
 
 const cleanText = (value, maxLength) =>
-  value.replace(/[\\u0000-\\u0008\\u000B\\u000C\\u000E-\\u001F\\u007F]/g, "").trim().slice(0, maxLength);
+  value.replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, "").trim().slice(0, maxLength);
 
 export async function onRequestPost({ request, env }) {
   // Refuse les appels navigateur provenant d'une autre origine.
@@ -65,7 +65,7 @@ export async function onRequestPost({ request, env }) {
   }
 
   const contentType = request.headers.get("content-type") || "";
-  if (!/^application\\/json(?:\\s*;|$)/i.test(contentType)) {
+  if (!/^application\/json(?:\s*;|$)/i.test(contentType)) {
     return json({ success: false, error: "Format de requête invalide." }, 415);
   }
 
@@ -124,8 +124,8 @@ export async function onRequestPost({ request, env }) {
   const message = cleanText(data.message, 5000);
 
   if (!nom || !prenom || !typeDemande || !message ||
-      !/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email) ||
-      (telephone && !/^\\+[1-9]\\d{6,14}$/.test(telephone))) {
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ||
+      (telephone && !/^\+[1-9]\d{6,14}$/.test(telephone))) {
     return json({ success: false, error: "Certaines informations sont invalides." }, 400);
   }
 
